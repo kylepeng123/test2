@@ -4,9 +4,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('demo', { title: 'Express' });
 });
-
+router.get('/demoS', function(req, res, next) {
+  res.render('demoS', { title: 'Express' });
+});
 router.post('/check', function(req, result, next) {
   var email = req.body.email;
 
@@ -15,12 +17,6 @@ router.post('/check', function(req, result, next) {
   console.log(email);
 });
 
-router.post('/check_name',function (req,result,next) {
-  var name=req.body.name;
-  var alpha=encryption.handlename();
-  var beta=encryption.hostgen(name);
-  console.log(name+"hhsfhaksj");
-  result.send(alpha);
-})
+
 
 module.exports = router;
