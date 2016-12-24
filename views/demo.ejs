@@ -23,6 +23,24 @@
 
 
     });
+    $(function() {
+        var $user_list = $("#user_list");
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/get_user_list",
+        data: {},
+        success: function(result) {
+            console.log(result);
+            $user_list.empty();
+           // var string;
+            $.each(result, function(index, value) {
+                console.log(result[index].first_name);
+                $user_list.append("<li><a value="+result[index].user_id+">" + result[index].first_name+"  "+result[index].last_name + "</a></li>");
+            });
+        }
+    });
+    });
+
 </script>
 </head>
 <body>
@@ -31,6 +49,10 @@
 <form action="/Myform" method="post">
 
     <input type="button" id="login" value="go to another page" onClick="click()"/>
+
 </form>
+<h1>The below is testing database!</h1>
+<ul id ="user_list">
+</ul>
 </body>
 </html>
