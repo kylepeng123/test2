@@ -12,7 +12,7 @@ var massive = require('massive');
 var app = express();
 // no need 'var app = require('../app');' any more, cause it has defined in 'app.js' already.
 var debug = require('debug')('my-application');
-app.set('port', process.env.PORT || 8080);
+//app.set('port', process.env.PORT || 8080);
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
